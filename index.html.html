@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>REFORMASI INDONESIA 1998 — Glassmorphism</title>
+
+  <style>
+    /* ====== Root & Reset ====== */
+    :root {
+      --bg-light: #f7f3f1;
+      --bg-mid: #f7f3f1;
+      --accent: #2b1d0e;
+      --glass: rgba(255, 255, 255, 0.06);
+      --glass-2: rgba(255, 255, 255, 0.10);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: #000; 
+      background: linear-gradient(180deg, var(--bg-light) 0%, var(--bg-mid) 45%, var(--bg-mid) 100%);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    /* ====== Layout ====== */
+    header {
+      position: sticky;
+      top: 18px;
+      z-index: 40;
+      display: flex;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .nav {
+      width: 100%;
+      max-width: var(--max-width);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 18px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--card-shadow);
+      margin: 0 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #e9ab73, #401f15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: var(--accent);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+
+    .brand h1 {
+      font-size: 1rem;
+      color: var(--accent);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 14px;
+      list-style: none;
+    }
+
+    nav a {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #000; 
+    }
+
+    nav a:hover, nav a.active {
+      background: rgba(0, 0, 0, 0.06);
+      color: #ae5618;
+    }
+
+    /* ====== Hero / Latar ====== */
+    .hero {
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 88px 20px 40px;
+      position: relative;
+      z-index: 2;
+      background: 
+        linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
+        url('https://c.files.bbci.co.uk/BC7F/production/_101655284_003dc7c0-8620-4e08-92ab-8d3f7c7f5571.jpg')
+        center / cover no-repeat fixed;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.1));
+    }
+
+    .hero-card {
+      position: relative;
+      width: 100%;
+      max-width: 980px;
+      padding: 36px;
+      border-radius: 16px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--card-shadow);
+      z-index: 3;
+    }
+
+    .hero-card h2 {
+      color: #000; 
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-card p {
+      color: #000; 
+    }
+
+    /* ====== Container / Sections ====== */
+    .container {
+      max-width: var(--max-width);
+      margin: 40px auto;
+      padding: 0 18px;
+      z-index: 3;
+    }
+
+    .section {
+      margin-bottom: 44px;
+    }
+
+    .section .section-title {
+      font-size: 1.6rem;
+      color: #000; 
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .glass {
+      background: var(--glass);
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--card-shadow);
+      color: #000; 
+    }
+
+    /* ====== Latar Belakang layout ====== */
+    .latar-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .latar-list ul {
+      list-style: disc;
+      margin-left: 18px;
+      margin-top: 8px;
+      color: #000; 
+    }
+
+    .latar-list p {
+      color: #000;
+    }
+
+    .latar-aside img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    /* ====== Kronologi (vertical timeline) ====== */
+    .timeline {
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #f0bda0, #7a3b28);
+      border-radius: 4px;
+    }
+
+    .event {
+      position: relative;
+      margin: 10px 0 30px 40px;
+      padding: 16px;
+      border-radius: 12px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: #000; 
+    }
+
+    .event .date {
+      position: absolute;
+      left: -140px;
+      top: 12px;
+      width: 120px;
+      text-align: right;
+      color: #000; 
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .event h4 {
+      color: #000; 
+      margin-bottom: 6px;
+    }
+
+    .event p {
+      color: #000; 
+    }
+
+    /* ====== Tokoh grid ====== */
+    .tokoh-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .tokoh {
+      padding: 14px;
+      border-radius: 12px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      text-align: center;
+      color: #000; 
+    }
+
+    .tokoh img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .dampak-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .dampak-card {
+      padding: 16px;
+      border-radius: 12px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: #000; 
+    }
+
+    .ringkasan {
+      padding: 18px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--glass-border);
+      color: #000; 
+    }
+
+    /* ====== Kontak ====== */
+    .contact-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: #000;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      background: #ffb48d;
+      border-radius: 10px;
+      border: none;
+      color: #2b160f;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    footer {
+      padding: 28px 18px;
+      text-align: center;
+      color: #000; 
+    }
+
+    /* ====== Responsive ====== */
+    @media (max-width: 980px) {
+      .latar-grid { grid-template-columns: 1fr; }
+      .hero-card { padding: 26px; }
+    }
+
+    @media (max-width: 560px) {
+      nav ul { display: none; }
+      .event .date {
+        left: -120px;
+        width: 100px;
+        text-align: right;
+        font-size: 0.85rem;
+      }
+      .tokoh img { height: 140px; }
+    }
+
+    /* ====== Reveal animation helper ====== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all 700ms cubic-bezier(.2,.9,.3,1);
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="ornament" aria-hidden="true"></div>
+
+  <!-- header / nav -->
+  <header>
+    <nav class="nav" role="navigation" aria-label="Main">
+      <div class="brand">
+        <div class="logo">R-98</div>
+        <h1>REFORMASI 1998</h1>
+      </div>
+
+      <ul>
+        <li><a href="#beranda" class="nav-link">Beranda</a></li>
+        <li><a href="#latar" class="nav-link">Latar Belakang</a></li>
+        <li><a href="#kronologi" class="nav-link">Kronologi</a></li>
+        <li><a href="#tokoh" class="nav-link">Tokoh</a></li>
+        <li><a href="#dampak" class="nav-link">Dampak</a></li>
+        <li><a href="#kontak" class="nav-link">Saran</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO / HOME -->
+  <main id="home" class="hero" role="main">
+    <div class="hero-card reveal">
+      <h2>Reformasi 1998: Titik Balik Sejarah Indonesia</h2>
+      <p>"Reformasi bukan sekadar perubahan pemimpin, tetapi kebangkitan kesadaran akan hak dan demokrasi"</p>
+      <p>
+      <p>Reformasi 1998 merupakan gerakan besar yang lahir dari akumulasi krisis ekonomi, maraknya KKN, serta tuntutan kebebasan dan demokratisasi dari mahasiswa dan masyarakat.</p>
+    </div>
+  </main>
+
+  <!-- LATAR BELAKANG -->
+  <section id="latar" class="container section" aria-labelledby="latar-title">
+    <h3 id="latar-title" class="section-title">Latar Belakang Reformasi 1998</h3>
+
+    <div class="latar-grid">
+      <div class="glass latar-list reveal">
+        <p>Reformasi 1998 muncul karena akumulasi krisis yang terjadi pada masa Orde Baru (1966–1998). Faktor utamanya:</p>
+
+        <ul>
+          <li><strong>Krisis Ekonomi 1997–1998</strong><br>
+            Nilai rupiah anjlok drastis akibat krisis moneter Asia. Harga kebutuhan pokok naik tajam, pengangguran meningkat, dan banyak perusahaan bangkrut. Masyarakat kehilangan kepercayaan pada kemampuan pemerintah menyelesaikan krisis.
+          </li>
+
+          <li><strong>Korupsi, Kolusi, dan Nepotisme (KKN)</strong><br>
+            Pemerintahan Orde Baru dikenal sarat praktik KKN. Banyak kebijakan ekonomi dan politik menguntungkan kelompok tertentu, termasuk kroni penguasa.
+          </li>
+
+          <li><strong>Otoritarianisme Orde Baru</strong><br>
+            Kebebasan berpendapat dibatasi. Pers diawasi ketat. Pemilu tidak berlangsung fair karena dominasi Golkar dan militer. Peran militer (ABRI) terlalu kuat dalam pemerintahan melalui konsep Dwi Fungsi ABRI.
+          </li>
+
+          <li><strong>Ketidakpuasan Mahasiswa & Rakyat</strong><br>
+            Gerakan mahasiswa di berbagai kota mulai menuntut reformasi politik, demokratisasi, dan penghapusan KKN. Masyarakat menginginkan perubahan kepemimpinan nasional.
+          </li>
+        </ul>
+      </div>
+
+      <aside class="latar-aside reveal">
+        <img src="https://mmc.tirto.id/image/2023/05/13/antarafoto-1998-05-19-a04-reformasi-menyeluruh-spt_ratio-16x9.jpg" alt="Foto Reformasi">
+      </aside>
+    </div>
+  </section>
+
+
+<section id="Kronologi" class="container section" aria-labelledby="kronologi-title">
+    <h3 id="kronologi-title" class="section-title">Kronologi Reformasi 1998</h3>
+<div class="timeline">
+
+  <div class="container left">
+    <div class="content">
+      <h3>Awal 1998 (Krisis Semakin Parah)</h3>
+      <p>Pada awal tahun 1998, Indonesia menghadapi krisis ekonomi yang semakin parah. Meskipun pemerintah mendapat bantuan dari IMF, inflasi tetap tinggi, nilai rupiah terus merosot, dan harga-harga kebutuhan pokok melonjak tajam sehingga banyak masyarakat kesulitan memenuhi kebutuhan sehari-hari. Kondisi ini membuat ketidakpuasan publik meningkat pesat, terutama di kalangan mahasiswa yang mulai mengorganisir demonstrasi di berbagai kota besar. Ketegangan sosial pun semakin terasa, karena rakyat menuntut reformasi ekonomi dan politik serta adanya perubahan kepemimpinan yang dianggap lebih responsif terhadap kebutuhan rakyat.</p>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG_B2WEhWoLYA8CilEyEmYFy3POGyhjGQn-Q&s">
+    </div>
+  </div>
+
+  <div class="container right">
+    <div class="content">
+      <h3>12 Mei 1998 (Tragedi Trisakti)</h3>
+      <p>Pada tanggal 12 Mei 1998, mahasiswa Universitas Trisakti menggelar aksi besar menuntut reformasi dan pengunduran diri Presiden Soeharto. Aksi ini berubah menjadi tragedi ketika empat mahasiswa yaitu Elang Mulya, Heri Hertanto, Hafidin Royan, serta Hendriawan Sie tertembak dan meninggal dunia. Peristiwa ini memicu gelombang kemarahan yang meluas ke seluruh negeri, menjadi simbol keberanian mahasiswa dalam memperjuangkan reformasi. Tragedi Trisakti membuka mata publik tentang kondisi negara yang tidak stabil dan meningkatkan tekanan kepada pemerintah agar segera melakukan perubahan yang nyata.</p>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6bM29Q3aP53rMrGdAtevnipy39--JI6fXJw&s" alt="Tragedi Trisakti">
+    </div>
+  </div>
+
+  <div class="container left">
+    <div class="content">
+       <h3>13–15 Mei 1998 (Kerusuhan di Jakarta & Beberapa Kota)</h3>
+      <p>Setelah Tragedi Trisakti, kerusuhan massal meletus di Jakarta dan beberapa kota lainnya antara tanggal 13 hingga 15 Mei. Aksi kekerasan meliputi pembakaran gedung, penjarahan toko-toko, dan serangan terhadap warga, terutama perempuan keturunan Tionghoa. Situasi keamanan nasional memburuk dengan cepat, menimbulkan rasa takut dan kekacauan di masyarakat. Peristiwa ini menunjukkan besarnya ketegangan sosial dan politik yang ada, sekaligus menambah tekanan terhadap pemerintah untuk segera mengambil langkah serius agar stabilitas negara bisa dipulihkan.</p>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTebMeNcLDhcQNY4816M1LP5CFTJFxjWzq8Uw&s" alt="Kerusuhan Mei 1998">
+    </div>
+  </div>
+
+  <div class="container right">
+    <div class="content">
+      <h3>18–20 Mei 1998 (DPR/MPR Mulai Tekan Soeharto)</h3>
+      <p>Antara tanggal 18 hingga 20 Mei, ribuan mahasiswa mengepung gedung DPR/MPR menuntut agar Presiden Soeharto mundur dari jabatannya. Tekanan ini didukung oleh tokoh-tokoh politik dan pimpinan MPR yang meminta langkah damai agar konflik tidak semakin meluas. Demonstrasi dan tekanan politik ini menandai titik penting dalam proses transisi kekuasaan, menunjukkan bahwa suara rakyat dan mahasiswa tidak bisa diabaikan lagi. Pemerintah berada di bawah pengawasan ketat, sementara masyarakat berharap perubahan politik segera terjadi demi stabilitas nasional dan perbaikan kondisi ekonomi.</p>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpuRp5GcoJHJ6I45T1mzUec40IdFM7HNxbUw&s" alt="Mahasiswa di DPR/MPR">
+    </div>
+  </div>
+
+  <div class="container left">
+    <div class="content">
+      <h3>21 Mei 1998 – Soeharto Mengundurkan Diri</h3>
+      <p>SAkhirnya, pada tanggal 21 Mei 1998, setelah 32 tahun berkuasa, Presiden Soeharto mengumumkan pengunduran dirinya secara resmi. Keputusan ini diterima sebagai kemenangan gerakan reformasi yang digerakkan oleh mahasiswa dan rakyat. Wakil Presiden B. J. Habibie kemudian dilantik sebagai Presiden RI ke-3, menandai dimulainya era baru dalam politik Indonesia. Masyarakat memiliki harapan besar bahwa reformasi akan membawa perubahan positif, peningkatan demokrasi, dan pemerintahan yang lebih transparan serta responsif terhadap kebutuhan rakyat.</p>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN9r2wHsS-kYk1fN-LLTzqIz5Utff3qbcFGw&s" alt="Soeharto Mundur">
+    </div>
+  </div>
+</section>
+
+
+  <!-- TOKOH -->
+  <section id="tokoh" class="container section" aria-labelledby="tokoh-title">
+    <h3 id="tokoh-title" class="section-title">Tokoh Penting Reformasi 1998</h3>
+    <div class="tokoh-grid reveal">
+      <div class="tokoh">
+        <img src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/108/2025/08/08/WhatsApp-Image-2025-08-08-at-204104_f6801e73-3429705494.jpg" alt="Mahasiswa Indonesia">
+        <h4>Mahasiswa Indonesia</h4>
+        <p>Aktor utama menuntut reformasi total. Demonstrasi dilakukan di UI, UGM, Unair, Unpad, Trisakti, Atma Jaya, ITB, dan banyak kampus lainnya.</p>
+      </div>
+
+      <div class="tokoh">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2cDfYKfHANe6-FQXMm6U_dhsV1gEe8YaZxg&s" alt="Amien Rais">
+        <h4>Amien Rais</h4>
+        <p>Salah satu aktivis dan tokoh yang memberi tekanan politik terhadap pemerintahan Orde Baru.</p>
+      </div>
+
+      <div class="tokoh">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu4Z3O50YGWUCJ-Ro5juTol1pqF2o0u_AyZg&s" alt="Sri Sultan HB X">
+        <h4>Sri Sultan Hamengkubuwono X</h4>
+        <p>Tokoh nasional yang ikut mendukung tuntutan reformasi.</p>
+      </div>
+
+      <div class="tokoh">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwVrdhJy6KLaMr8qF4gcyiPLC8Mvtli2qeEg&s" alt="Megawati">
+        <h4>Megawati Soekarnoputri</h4>
+        <p>Figur oposisi penting dan simbol perlawanan terhadap rezim lama.</p>
+      </div>
+
+      <div class="tokoh">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgc3i7FI4W_ZY-dma7U_JKHGD4h04A9yFNYg&s" alt="Gus Dur">
+        <h4>KH. Abdurrahman Wahid (Gus Dur)</h4>
+        <p>Pemimpin NU yang memberi tekanan politik demi tercapainya reformasi.</p>
+      </div>
+
+      <div class="tokoh">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa4vtFNVzKlpdFUPN6_fHR0jsBFFEh1KDWyA&s" alt="BJ Habibie">
+        <h4>B. J. Habibie</h4>
+        <p>Menggantikan Soeharto sebagai Presiden, membuka era reformasi: pemilu bebas 1999, pembebasan tahanan politik, dan kebebasan pers.</p>
+      </div>
+
+      <div class="tokoh">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDFVQmnXSQMg8r8NqnbtNoZA24U5maqw7oGQ&s" alt="Soeharto">
+        <h4>Soeharto</h4>
+        <p>Presiden RI selama 32 tahun yang akhirnya mundur setelah tekanan ekonomi, politik, dan sosial.</p>
+      </div>
+
+      <div class="tokoh">
+        <img src="https://cdn.antaranews.com/cache/1200x800/2021/05/12/Peringatan-Tragedi-Trisakti-120516-agr-3.jpg" alt="Mahasiswa yang Tewas pada Tragedi Trisakti">
+        <h4>Mahasiswa yang Tewas pada Tragedi Trisakti</h4>
+        <p>Empat mahasiswa yang tewas dalam Tragedi Trisakti 12 Mei 1998 adalah Elang Mulya Lesmana, Heri Hertanto, Hafidin Royan, dan Hendriawan Sie. Mereka gugur saat aparat menembak mahasiswa yang sedang melakukan unjuk rasa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAMPAK -->
+  <section id="dampak" class="container section" aria-labelledby="dampak-title">
+    <h3 id="dampak-title" class="section-title">Dampak Reformasi 1998</h3>
+
+    <div class="dampak-grid reveal">
+      <div class="dampak-card reveal glass">
+        <h4>Perubahan Sistem Politik</h4>
+        <p>Pemilu 1999 berlangsung lebih demokratis. Partai politik berkembang bebas. Habibie menghapus Dwi Fungsi ABRI sehingga militer tidak lagi mendominasi politik.</p>
+      </div>
+
+      <div class="dampak-card reveal glass">
+        <h4>Kebebasan Pers</h4>
+        <p>Media massa menjadi lebih bebas mengkritik pemerintah. Tidak ada lagi SIUPP yang membatasi pers.</p>
+      </div>
+
+      <div class="dampak-card reveal glass">
+        <h4>Desentralisasi & Otonomi Daerah</h4>
+        <p>Kewenangan pemerintah daerah diperluas untuk mencegah sentralisasi kekuasaan.</p>
+      </div>
+
+      <div class="dampak-card reveal glass">
+        <h4>Reformasi Hukum & HAM</h4>
+        <p>Tahanan politik Orde Baru dibebaskan. Regulasi baru dibentuk untuk memperkuat penegakan HAM.</p>
+      </div>
+
+      <div class="dampak-card reveal glass">
+        <h4>Perubahan Kepemimpinan Nasional</h4>
+        <p>Berakhirnya Orde Baru → awal era Reformasi. Terbukanya ruang bagi tokoh-tokoh baru dalam pemerintahan.</p>
+      </div>
+
+      <div class="dampak-card reveal glass">
+        <h4>Dampak Militer</h4>
+        <p>BTNI dipisahkan dari Polri (dwifungsi ABRI dihapus), militer tidak lagi menduduki jabatan politik dan pemerintahan dan profesionalisme TNI mulai dibangun.</p>
+      </div>
+
+      <div class="dampak-card reveal glass">
+        <h4>Perubahan dalam Kehidupan Bernegara</h4>
+        <p>Meningkatnya budaya kritik dan budaya demokrasi, terbentuknya gerakan mahasiswa sebagai kekuatan moral bangsa, dan ruang bagi masyarakat sipil untuk mengawasi pemerintah lebih luas.</p>
+      </div>
+
+      <div class="dampak-card reveal glass">
+        <h4>Ekonomi: Stabilisasi Bertahap</h4>
+        <p>Meski awalnya sulit, reformasi membuka jalan bagi pembenahan ekonomi jangka panjang.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- KONTAK / SARAN -->
+  <section id="kontak" class="container section" aria-labelledby="kontak-title">
+    <h3 id="kontak-title" class="section-title">Saran & Masukan</h3>
+
+    <div class="glass reveal" style="max-width:900px;margin:0 auto">
+      <form class="contact-form" id="contactForm">
+        <label for="nama">Nama</label>
+        <input id="nama" type="text" placeholder="Nama Anda" required>
+
+        <label for="pesan">Saran / Masukan</label>
+        <textarea id="pesan" rows="5" placeholder="Tulis saran atau masukanmu..." required></textarea>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+          <button class="btn" type="submit">Kirim</button>
+          <small style="color: rgba(0,0,0,0.8)">Terima kasih atas partisipasimu untuk melestarikan memori sejarah.</small>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <small>&copy; 2025 — Sejarah Reformasi 1998. Materi ringkasan sejarah Reformasi Indonesia 1998.</small>
+  </footer>
+
+  <script>
+    // Smooth scroll for nav links
+    document.querySelectorAll('a.nav-link, nav a').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
+            history.replaceState(null, '', href);
+          }
+        }
+      });
+    });
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) en.target.classList.add('show');
+      });
+    }, { threshold: 0.16 });
+    revealEls.forEach(e => obs.observe(e));
+
+    // Active nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a');
+    const obs2 = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          const id = en.target.id;
+          const link = document.querySelector('nav a[href="#' + id + '"]');
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => obs2.observe(s));
+
+    // Form handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('nama').value.trim();
+      const msg = document.getElementById('pesan').value.trim();
+      if (!name || !msg) { alert('Isi nama dan pesan terlebih dahulu.'); return; }
+      alert('Terima kasih, saranmu telah diterima. (Ini demo; tidak ada pengiriman server.)');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
